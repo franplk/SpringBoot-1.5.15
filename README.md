@@ -3,8 +3,8 @@
 
 # 项目介绍
 
- - sb-fileupload 结合FastDFS完成的一个文件上传服务
- - sb-schedule SPringBoot 提供的定时任务实现
+- sb-fileupload 结合FastDFS完成的一个文件上传服务
+- sb-schedule SPringBoot 提供的定时任务实现
   - cron表达式实现
   - fixDelay实现
   - fixRate实现
