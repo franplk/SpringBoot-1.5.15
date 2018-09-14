@@ -1,5 +1,7 @@
 # SpringBoot-1.5.15
-记录学习SpringBoot的一个过程，记录SpringBoot开发牵涉到的各个功能特点
+
+SpringBoot为基于Spring的开发提供了快速的环境搭建工作，同时也提供了与其他各个组件的集成。
+该项目的目的是完成SpringBoot是如何与各个组件实现集成的，以代码的方式完成
 
 # 项目介绍
 
