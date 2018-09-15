@@ -23,16 +23,12 @@
 	</properties>
 
 	<modules>
-		<module>sb-quartz</module>
 		<module>sb-mail</module>
-		<module>sb-jpa</module>
-		<module>sb-mybatis</module>
-		<module>sb-mogondb</module>
 		<module>sb-redis</module>
-		<module>sb-mq-active</module>
 		<module>sb-fileupload</module>
-		<module>sb-actuator</module>
-		<module>sb-web</module>
+		<module>sb-cache</module>
+		<module>sb-schedule</module>
+		<module>sb-async</module>
 	</modules>
 
 	<dependencies>

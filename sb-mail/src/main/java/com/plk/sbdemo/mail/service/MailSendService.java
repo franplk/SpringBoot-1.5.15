@@ -17,6 +17,8 @@ import org.springframework.util.Assert;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import com.plk.sbdemo.mail.domain.MailTemplate;
+
 @Component
 public class MailSendService implements InitializingBean {
 
@@ -96,11 +98,11 @@ public class MailSendService implements InitializingBean {
 	/**
 	 * 发送模板邮件
 	 */
-	public void sendTemplateMail(String tplPath, String toAddr, String subject, String toUser) {
+	public void sendTemplateMail(String toAddr, String subject, String toUser, MailTemplate<?> template) {
 	    //创建邮件正文
 	    Context context = new Context();
-	    context.setVariable("mailUser", toUser);
-	    String emailContent = templateEngine.process(tplPath, context);
+	    context.setVariable(template.getModelName(), template.getModelBean());
+	    String emailContent = templateEngine.process(template.getTplPath(), context);
 
 	    sendHtmlMail(toAddr, subject ,emailContent);
 	}

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.plk.sbdemo.mail.domain.MailTemplate;
+import com.plk.sbdemo.mail.domain.NoticeUserBean;
 import com.plk.sbdemo.mail.service.MailSendService;
 
 @RunWith(SpringRunner.class)
@@ -17,7 +19,7 @@ public class MailTest {
 	
 	//@Test
 	public void sendTextMailTest() {
-		mailService.sendTextMail("xxx@163.com", "Test For SpringBoot", "This Is A Test Mail");
+		mailService.sendTextMail("xxxx@163.com", "Test For SpringBoot", "This Is A Test Mail");
 	}
 	
 	/**
@@ -26,7 +28,7 @@ public class MailTest {
 	//@Test
 	public void sendAttachFileMail () {
 		String filePath = "E:/images/earth.png";
-		mailService.sendMailWithAttachFile("xxx@163.com", "Test For SpringBoot", "This Is A Test Mail", filePath);
+		mailService.sendMailWithAttachFile("xxxx@163.com", "Test For SpringBoot", "This Is A Test Mail", filePath);
 	}
 	
 	/**
@@ -34,7 +36,10 @@ public class MailTest {
 	 */
 	@Test
 	public void sendTemplateMail () {
-		String tplPath = "emailTpl";
-		mailService.sendTemplateMail(tplPath, "xxx@163.com", "Test For SpringBoot", "franplk");
+		MailTemplate<NoticeUserBean> tpl = new MailTemplate<NoticeUserBean>();
+		tpl.setTplPath("emailTpl");
+		tpl.setModelName("tplModel");
+		tpl.setModelBean(new NoticeUserBean().setMailUser("HongTaiLang"));
+		mailService.sendTemplateMail("xxxx@163.com", "Test For SpringBoot", "franplk", tpl);
 	}
 }
