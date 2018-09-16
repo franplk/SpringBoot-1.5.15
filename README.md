@@ -29,11 +29,18 @@ SpringBoot为基于Spring的开发提供了快速的环境搭建工作，同时�
 ## 定时任务
 
 - sb-schedule SpringBoot 提供的定时任务实现
+
   - cron表达式实现
   - fixDelay实现
   - fixRate实现
   - 开启并行任务执行（ScheduleConfig）
   - 可以开启异步支持（AsynchronizationConfig）使用时在任务实现上添加@Asyc注解
+  
+- sb-quartz SpringBoot结合Quartz实现定时任务的动态管理，前端由EasyUI设计的简单页面
+
+  - 定时任务的启动
+  - 定时任务的停止
+  - 定时任务的触发
 
 ## 缓存支持
 
