@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plk.sbdemo.mybatis.mapper.UserXMLMapper">
+
+	<!-- 字段一致使用实体类即可。如果字段不一致则必须配置ResultMap -->
+	<select id="findAll" resultType="com.plk.sbdemo.mybatis.domain.User">
+		SELECT * FROM USER
+	</select>
+
+	<insert id="addEntity" parameterType="com.plk.sbdemo.mybatis.domain.User">
+		INSERT INTO
+		USER(username,password,nickname,regtime,email)
+		VALUES(#{username},#{password},#{nickname},#{regtime},#{email})
+	</insert>
+
+</mapper>
