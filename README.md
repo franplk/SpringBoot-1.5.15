@@ -56,3 +56,6 @@ SpringBoot为基于Spring的开发提供了快速的环境搭建工作，同时�
   - 定时任务的停止
   - 定时任务的触发
 
+## 消息队列
+
+- sb-mq-active SpringBoot集成ActiveMQ
