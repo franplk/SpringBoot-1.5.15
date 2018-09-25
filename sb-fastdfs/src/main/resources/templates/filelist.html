@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>文件列表</title>
+<link rel="stylesheet" type="text/css" href="/styles/filelist.css" />
+</head>
+<body>
+<table>
+	<caption>
+		<a th:href="@{/file/upload}">上传文件</a>
+		<h4>文件列表</h4>
+	</caption>
+	<thead>
+		<tr>
+			<th>序号</th><th>文件属主</th><th>文件名称</th><th>文件大小(b)</th><th>MD5校验</th><th>上传时间</th><th>管理</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="file,stat:${fileList}">
+			<td th:text="${stat.index}">1</td>
+			<td th:text="${file.owner}">owner</td>
+			<td th:text="${file.fileName}">fileName</td>
+			<td th:text="${file.fileSize}">fileSize</td>
+			<td th:text="${file.fileMd5}">fileMd5</td>
+			<td th:text="${#dates.format(file.uploadTime,'yyyy-MM-dd HH:mm:ss')}">uploadTime</td>
+			<td class='action'>
+				<a th:href="${file.fileUrl}" target="_blank">查看</a>
+				<a class="delete" th:id="${file.id}" href="javascript:void(0)">删除</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+<script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/filelist.js"></script>
+</html>

@@ -25,7 +25,7 @@
 	<modules>
 		<module>sb-mail</module>
 		<module>sb-redis</module>
-		<module>sb-fileupload</module>
+		<module>sb-fastdfs</module>
 		<module>sb-cache</module>
 		<module>sb-schedule</module>
 		<module>sb-async</module>

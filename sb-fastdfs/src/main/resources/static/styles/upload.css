@@ -1,0 +1,23 @@
+body{
+	font-size:16px;
+}
+table {
+	border-spacing:0px;
+}
+td {height:20px}
+td.progress {
+	width:200px;
+	text-align:center;
+    border: 1px solid #000;
+}
+div.progress-text {
+    position: absolute;
+    margin-left: 0px;
+    width:200px;
+    text-align:center;
+}
+div.progress-bar {
+	float:left;
+	height: 100%;
+	background: rgba(3, 9, 162, .3);
+}

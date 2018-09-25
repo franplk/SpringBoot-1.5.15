@@ -22,6 +22,8 @@ SpringBoot为基于Spring的开发提供了快速的环境搭建工作，同时�
 
 - sb-fileupload SpringBoot集成文件上传服务
   - 结合FastDFS完成
+  - 完成普通文件上传
+  - 单线程文件分片上传（redis记录上传的状态--文件名、文件大小等）
 
 ## 邮件发送
 
