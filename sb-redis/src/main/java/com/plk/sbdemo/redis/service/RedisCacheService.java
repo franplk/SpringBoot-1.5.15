@@ -16,6 +16,9 @@ public class RedisCacheService {
 	private RedisTemplate<String, String> redisTemplate;
 	
 	public void setCache(String key, String value, long expires) {
+		if (expires == 0) {
+			redisTemplate.opsForValue().set(key, value);
+		}
 		redisTemplate.opsForValue().set(key, value, expires, TimeUnit.SECONDS);
 	}
 	
