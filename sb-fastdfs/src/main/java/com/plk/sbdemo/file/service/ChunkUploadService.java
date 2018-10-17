@@ -63,16 +63,10 @@ public class ChunkUploadService {
 		String chunkNumKey = ChunkConstants.getCheckNumKey(fileMd5);
 		String chunkLast = redisService.getCache(chunkNumKey);
 		if (StringUtils.isEmpty(chunkLast)) {
-			throw new ChunkFileException("无法获取当前文件chunk数");
-		}
-		
-		// 分片对比
-		String chunkCurrkey = ChunkConstants.getCheckNumKey(fileMd5);
-		String chunkCurr = redisService.getCache(chunkCurrkey);
-		if (StringUtils.isEmpty(chunkCurr)) {
 			throw new ChunkFileException("无法获取文件当前块");
 		}
-		int chunkLastNum = Integer.parseInt(chunkCurr);
+		// 分片对比
+		int chunkLastNum = Integer.parseInt(chunkLast);
 		if (chunkNum < chunkLastNum) {
 			throw new ChunkFileException("当前文件块已上传");
 		} else if (chunkNum > chunkLastNum) {

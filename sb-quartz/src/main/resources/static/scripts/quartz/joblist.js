@@ -1,15 +1,15 @@
 $(function() {
 	// 初始化 EasyUI DataGrid
 	$('#tableData').datagrid({
-		title:"定时任务列表", rownumbers:true, striped:true,
+		rownumbers:true, striped:true,
 		singleSelect:true, showHeader:true, showFooter:true,
 		columns:[[
-			{title:'任务名称',field:'jobName',width:100,align:'left'},
-			{title:'分组名称',field:'jobGroup',width:100,align:'left'},
-			{title:'任务表达式',field:'cronExps',width:100,align:'left'},
-			{title:'功能描述',field:'funcDesc',width:200,align:'left'},
-			{title:'上次触发时间',field:'lastTriggerTime',width:150,align:'left'},
-			{title:'下次触发时间',field:'nextTriggerTime',width:150,align:'left'},
+			{title:'分组名称',field:'jobGroup',width:100,align:'center'},
+			{title:'任务名称',field:'jobName',width:100,align:'center'},
+			{title:'任务表达式',field:'cronExps',width:100,align:'center'},
+			{title:'功能描述',field:'funcDesc',width:200,align:'center'},
+			{title:'上次触发时间',field:'lastTriggerTime',width:120,align:'center'},
+			{title:'下次触发时间',field:'nextTriggerTime',width:120,align:'center'},
 			{title:'操作',field:'state',width:200,align:'center',
 				formatter : function(val, row, index) {
 					var html = '';
@@ -24,8 +24,10 @@ $(function() {
 					return html;
 				}
 			}
-		]],
-		onLoadSuccess:function(data){  
+		]], toolbar: [{
+			text: "重新加载", iconCls: 'icon-reload',
+			handler: function() { window.location.reload();}
+		}], onLoadSuccess:function(data){  
 	        $('a.btnAction').linkbutton({plain : false});  
 	    }
 	});
@@ -36,7 +38,7 @@ $(function() {
 		var jobName = $this.attr('jobName');
 		var jobGroup = $this.attr('jobGroup');
 		$.ajax({
-			type:"POST", dataType:"json", url:"/schedule/" + action,
+			type:"POST", dataType:"json", url:"schedule/" + action,
 			data:{"jobName":jobName, "jobGroup":jobGroup},
 			success:function(result) {
 				if (result.code == '0000') {
@@ -56,7 +58,7 @@ $(function() {
 	function query () {
 		$("#tableData").datagrid('loading');
 		$.ajax({
-			url:"/schedule/list", dataType:"json",
+			url:"schedule/list", dataType:"json",
 			success:function(result) {
 				if (result.code == '0000') {
 					$('#tableData').datagrid({

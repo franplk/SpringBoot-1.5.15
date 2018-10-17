@@ -27,5 +27,4 @@ public class FastDfsConfig {
 		TrackerServer trackerServer = trackerClient.getConnection();
 		return new StorageClient(trackerServer, null);
 	}
-	
 }

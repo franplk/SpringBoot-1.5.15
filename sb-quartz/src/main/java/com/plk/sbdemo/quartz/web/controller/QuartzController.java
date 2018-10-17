@@ -1,4 +1,4 @@
-package com.plk.sbdemo.quartz.controller;
+package com.plk.sbdemo.quartz.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,7 @@ public class QuartzController {
 
 	@RequestMapping("")
 	public String index() {
-		return "redirect:/quartz/joblist";
+		return "quartz/jobList";
 	}
 	
 	@RequestMapping("/joblist")

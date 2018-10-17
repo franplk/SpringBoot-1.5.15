@@ -13,6 +13,7 @@ public class QuartzConfig {
 	
 	/**
 	 * 自定义定时任务的JobFactory
+	 * 定时任务执行时要获取一个实例，将这些实例通过Spring直接管理，通过获取bean实例的方式获取
 	 */
 	@Bean("myJobFactory")
 	public JobFactory jobFactory(ApplicationContext context) {

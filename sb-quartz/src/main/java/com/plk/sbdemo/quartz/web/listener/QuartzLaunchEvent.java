@@ -1,10 +1,10 @@
-package com.plk.sbdemo.quartz.lisenter;
+package com.plk.sbdemo.quartz.web.listener;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * 定时任务启动监听器
+ * 定时任务启动事件
  */
 public class QuartzLaunchEvent extends ApplicationEvent {
 
@@ -24,5 +24,4 @@ public class QuartzLaunchEvent extends ApplicationEvent {
 	public void setContext(ApplicationContext context) {
 		this.context = context;
 	}
-
 }

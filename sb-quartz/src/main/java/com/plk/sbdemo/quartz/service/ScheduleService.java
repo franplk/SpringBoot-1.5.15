@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
+import org.quartz.Job;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.JobKey;
@@ -23,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plk.sbdemo.quartz.domain.JobInfo;
-import com.plk.sbdemo.quartz.jobs.QuartzJob;
+import com.plk.sbdemo.quartz.exception.quartz.QuartzException;
 
 @Service
 public class ScheduleService {
@@ -33,12 +34,14 @@ public class ScheduleService {
 	@Autowired
 	private Scheduler scheduler;
 	
-	public void addJob(String jobGroup, String jobName, QuartzJob job) {
+	public void addJob(String jobGroup, String jobName, String cronExp, String desc, Class<? extends Job> jobCalss) {
 		try {
-			JobDetail jobDetail = JobBuilder.newJob(job.getClass())
-					.withIdentity(jobGroup, jobName).build();
-			Trigger trigger = TriggerBuilder.newTrigger().withIdentity(jobGroup, jobName)
-                    .withSchedule(CronScheduleBuilder.cronSchedule(job.jobCronExp()))
+			JobDetail jobDetail = JobBuilder.newJob(jobCalss)
+					.withIdentity(jobName, jobGroup)
+					.build();
+			Trigger trigger = TriggerBuilder.newTrigger().withIdentity(jobName, jobGroup)
+                    .withSchedule(CronScheduleBuilder.cronSchedule(cronExp))
+                    .withDescription(desc)
                     .build();
             scheduler.scheduleJob(jobDetail, trigger);
 		} catch (SchedulerException e) {
@@ -58,7 +61,7 @@ public class ScheduleService {
 			}
 			return triggerGroupList.stream().collect(Collectors.toMap(g -> g, g-> getJobListByGroup(g)));
 		} catch (Exception e) {
-			throw new RuntimeException(e.getMessage());
+			throw new QuartzException(e.getMessage());
 		}
 	}
 	
@@ -75,7 +78,7 @@ public class ScheduleService {
 			}
 			return triggerKeySet.stream().map(k -> getJobByTriggerKey(k)).collect(Collectors.toList());
 		} catch (Exception e) {
-			throw new RuntimeException("根据分组获取触发器失败");
+			throw new QuartzException("根据分组获取触发器失败");
 		}
 	}
 	
@@ -104,7 +107,7 @@ public class ScheduleService {
 
 			return jobinfo;
 		} catch (Exception e) {
-			throw new RuntimeException("触发器获取失败");
+			throw new QuartzException("触发器获取失败");
 		}
 	}
 	
@@ -116,7 +119,7 @@ public class ScheduleService {
 		try {
 			scheduler.pauseJob(jobKey);
 		} catch (SchedulerException e) {
-			throw new RuntimeException("定时任务停止失败");
+			throw new QuartzException("定时任务停止失败");
 		}
 	}
 	
@@ -128,7 +131,7 @@ public class ScheduleService {
 		try {
 			scheduler.resumeJob(jobKey);
 		} catch (SchedulerException e) {
-			throw new RuntimeException("定时任务恢复失败");
+			throw new QuartzException("定时任务恢复失败");
 		}
 	}
 
@@ -140,7 +143,7 @@ public class ScheduleService {
 		try {
 			scheduler.triggerJob(jobKey);
 		} catch (SchedulerException e) {
-			throw new RuntimeException("手动触发任务失败");
+			throw new QuartzException("手动触发任务失败");
 		}
 	}
 }

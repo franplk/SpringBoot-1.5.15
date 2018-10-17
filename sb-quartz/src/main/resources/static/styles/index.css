@@ -6,8 +6,8 @@ a {text-decoration:none;color:#000;}
 img {border:0px;}
 
 /* header */
-div.logo {width:362px;height:51px;float:left;background:url(/images/logo.gif);}
-.header {height:51px;overflow:hidden;background:url(/images/header-bg.gif) repeat-x;}
+div.logo {width:362px;height:51px;float:left;background:url(../images/logo.gif);}
+.header {height:51px;overflow:hidden;background:url(../images/header-bg.gif) repeat-x;}
 ul.banner{float:right;overflow:hidden;margin-right:30px;margin-top:18px;list-style:none;}
 ul.banner li{float:left;padding:0 15px;text-align:center;border-right:2px #139667 solid;}
 ul.banner li:last-child{border:none;}
@@ -27,5 +27,5 @@ iframe {width:100%;height:99%;scrolling:auto;}
 .copyright {
 	padding:0;margin:0;
 	line-height:23px;text-align:center;
-	background:url(/images/footer-bg.gif) repeat-x;
+	background:url(../images/footer-bg.gif) repeat-x;
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.plk.sbdemo.quartz;
+package com.plk.sbdemo.quartz.web;
 
 import java.io.Serializable;
 
@@ -30,18 +30,18 @@ public class ApiResponse implements Serializable {
 	private ApiResponse() {
 	}
 	
-	public static ApiResponse sucessResponse() {
-		return sucessResponse(null);
+	public static ApiResponse success() {
+		return success(null);
 	}
 	
-	public static ApiResponse sucessResponse(Object data) {
+	public static ApiResponse success(Object data) {
 		return new ApiResponse()
 				.setCode(SUCC_CODE)
 				.setMsg("请求成功")
 				.setData(data);
 	}
 	
-	public static ApiResponse failResponse(String msg) {
+	public static ApiResponse fail(String msg) {
 		return new ApiResponse()
 				.setCode(FAIL_CODE)
 				.setMsg(msg);
