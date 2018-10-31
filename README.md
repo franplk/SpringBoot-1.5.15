@@ -61,3 +61,20 @@
 ## 消息队列
 
 - sb-mq-active SpringBoot集成ActiveMQ
+
+## 权限管理
+
+- sb-shiro 集合shiro完成的权限管理系统
+
+## 应用监控
+
+- sb-monitor SpringBoot Admin实现监控功能
+
+## Web综合开发
+
+- sb-admin 结合EasyUI开发的一个后台管理系统
+
+  - 主页菜单管理
+  - 系统用户管理
+  - 基于Quartz的定时任务管理
+  - 基于FastDFS的文件上传
