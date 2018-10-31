@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账号申请</title>
+<base th:href="@{/}" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/easyui.css" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />
+<style type="text/css">
+a#btn-form-submit{width:164px}
+.admin-window{width:300px;margin:10% auto;}
+</style>
+</head>
+<body>
+<div>
+<div class="easyui-panel" title="账号申请">
+<form id="form-user-apply" method="post">
+<table cellpadding="5" style="width:100%">
+	<tr>
+		<td>登录账号:</td>
+		<td><input class="easyui-textbox" name="username" data-options="required:true,validType:'length[5,10]'" /></td>
+	</tr>
+	<tr>
+		<td>您的邮箱:</td>
+		<td><input class="easyui-textbox" name="email" data-options="required:true,validType:'email'" /></td>
+	</tr>
+	<tr>
+		<td>个性昵称:</td>
+		<td><input class="easyui-textbox" name="nickname" /></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;</td>
+		<td>已有账号？&nbsp;&nbsp;<a th:href="@{/login}">去登录</a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;</td>
+		<td><a class="easyui-linkbutton" id="btn-form-submit" href="javascript:void(0)">申请</a></td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/easyui.min.js"></script>
+<script type="text/javascript" src="easyui/easyui-lang-zh.js"></script>
+<script type="text/javascript" src="scripts/user/apply.js"></script>
+</html>

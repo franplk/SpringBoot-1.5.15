@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户详情</title>
+<base th:href="@{/}" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/easyui.css" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />
+<style type="text/css">
+.panel {width:400px;margin:10% auto;}
+.easyui-panel{padding:10px 60px 20px 60px; margin:auto;}
+.panel-title{text-align: center;}
+a#btn-form-submit{width:164px}
+</style>
+</head>
+<body>
+<div class="easyui-panel" title="用户详情">
+<form id="form-user-apply" method="post">
+<table cellpadding="5" style="width:100%">
+	<tr>
+		<td>登录账号:</td>
+		<td th:text="${user.username}"></td>
+	</tr>
+	<tr>
+		<td>注册邮箱:</td>
+		<td th:text="${user.email}"></td>
+	</tr>
+	<tr>
+		<td>个性昵称:</td>
+		<td th:text="${user.nickname}"></td>
+	</tr>
+	<tr>
+		<td>用户权限:</td>
+		<td>
+			<p th:each="role:${roleList}" th:text="${role.roleName}"></p>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/easyui.min.js"></script>
+<script type="text/javascript" src="easyui/easyui-lang-zh.js"></script>
+<script type="text/javascript" src="scripts/user/apply.js"></script>
+</html>

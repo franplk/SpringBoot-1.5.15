@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账号申请</title>
+<style type="text/css">
+input {
+	display:bolck; width:200px; helght:20px
+}
+</style>
+</head>
+<body>
+用户申请成功，账号名称：<span th:text="${user.username}"></span>
+登录密码:<span th:text="${user.password}"></span>
+<a th:href="@{/login}">去登录</a>
+</body>
+</html>

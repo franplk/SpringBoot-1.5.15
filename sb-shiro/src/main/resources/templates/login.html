@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录管理</title>
+<link type="text/css" rel="stylesheet" href="/styles/login/login.css" />
+</head>
+<body>
+<div id="login">
+	<form action="/verify" method="post">
+		<fieldset>
+			<legend>用户登录</legend>
+			<a href="/newer/apply">没有账号？点击申请</a>
+			<p><input type="text" id="user" name="username" placeholder="请输入用户名" /></p>
+			<p><input type="password" id="pwd" name="password" placeholder="请输入密码" /></p>
+			<p class="error" th:text="${errormsg}">&nbsp;&nbsp;</p>
+			<p><input type="submit" id="submit" value="登录" /></p>
+		</fieldset>
+	</form>
+</div>
+</body>
+</html>

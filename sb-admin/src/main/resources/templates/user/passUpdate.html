@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账号密码修改</title>
+<base th:href="@{/}" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/easyui.css" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />
+<style type="text/css">
+a#btn-form-submit{width:164px}
+.admin-window{width:300px;margin:10% auto;}
+</style>
+</head>
+<body>
+<div class="admin-window">
+<div class="easyui-panel" title="修改密码">
+<form id="form-pass-update" method="post">
+<input type="hidden" name="userid" value="0" th:value="${session.account.id}" />
+<table cellpadding="5" style="width:100%">
+	<tr>
+		<td>输入密码:</td>
+		<td><input class="easyui-textbox" type="password" name="newPass" data-options="required:true,validType:'length[6,16]'" /></td>
+	</tr>
+	<tr>
+		<td>确认密码:</td>
+		<td><input class="easyui-textbox" type="password" name="repPass" data-options="required:true,validType:'length[6,16]'" /></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;</td>
+		<td><a class="easyui-linkbutton" id="btn-form-submit" href="javascript:void(0)">确认修改</a></td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/easyui.min.js"></script>
+<script type="text/javascript" src="easyui/easyui-lang-zh.js"></script>
+<script type="text/javascript" src="scripts/user/passUpdate.js"></script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>用户列表</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>序号</th><th>用户</th><th>昵称</th><th>邮箱</th><th>管理</th>
+		</tr>
+		<tr th:each="user,stat:${userList}">
+			<td th:text="${stat.index}"></td>
+			<td th:text="${user.username}"></td>
+			<td th:text="${user.nickname}"></td>
+			<td th:text="${user.email}"></td>
+			<td class='action'>
+				<button th:id="'delete-' + ${user.id}">删除</button>
+				<button th:id="'freeze-' + ${user.id}">冻结</button>
+			</td>
+		</tr>
+	</table>
+</body>
+<script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/user/index.js"></script>
+</html>

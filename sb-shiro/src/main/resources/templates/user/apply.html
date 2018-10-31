@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账号申请</title>
+<style type="text/css">
+input {
+	display:bolck; width:200px; helght:20px
+}
+</style>
+</head>
+<body>
+<form action="/newer/apply/add" method="post">
+	<fieldset>
+		<legend>申请账号</legend>
+		<input type="text" name="username" placeholder="请输入登录名" />
+		<input type="text" name="nickname" placeholder="个性化昵称" />
+		<input type="text" name="email" placeholder="您的Email。接收审核结果" />
+		<input type="submit" value="确认申请" />
+	</fieldset>
+</form>
+</body>
+</html>

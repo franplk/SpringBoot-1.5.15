@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>安装包管理</title>
+<base th:href="@{/}" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/easyui.css" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />
+<link rel="stylesheet" type="text/css" href="webuploader/webuploader.css" />
+<style type="text/css">
+a#btn-form-submit, a#btn-retry-file{width:164px}
+.admin-window{width:360px;margin:10% auto;}
+</style>
+</head>
+<body>
+<div class="admin-window">
+<div class="easyui-panel" title="新增安装包">
+<form id="form-package-add" method="post">
+<input type="hidden" name="status" value="0" />
+<input type="hidden" name="sourceName" value="" />
+<input type="hidden" name="fileMd5" value="" />
+<input type="hidden" name="linkurl" value="" />
+<table cellpadding="5" style="margin:0 auto">
+	<tr>
+		<td>系统类型：</td>
+		<td>
+			<select class="easyui-combobox" name="appType">	
+				<option value="0">Android系统</option>
+				<option value="1">IOS系统</option>
+			</select>
+		</td>
+	</tr>
+	<tr>	
+		<td>文件名称：</td>
+		<td><input class="easyui-textbox" name="packName" data-options="required:true" /></td>
+	</tr>
+	<tr>
+		<td>安装包版本：</td>
+		<td><input class="easyui-textbox" name="version" data-options="required:true" /></td>
+	</tr>
+	<tr>
+		<td>
+			<div id="picker"></div>
+		</td>
+		<td>	
+			<div id="progress-file" class="easyui-progressbar" style="width:164px;display:none"></div>
+			<a class="easyui-linkbutton" id="btn-retry-file" style="display:none">重试</a>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>	
+			<a class="easyui-linkbutton" id="btn-form-submit" href="javascript:void(0)" data-options="disabled:true">添加</a>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/easyui.min.js"></script>
+<script type="text/javascript" src="easyui/easyui-lang-zh.js"></script>
+<script type="text/javascript" src="webuploader/webuploader.min.js"></script>
+<script type="text/javascript" src="scripts/package/chunk.js"></script>
+<script type="text/javascript" src="scripts/package/upload.js"></script>
+</html>

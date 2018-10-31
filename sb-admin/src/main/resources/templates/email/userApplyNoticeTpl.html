@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>用户申请账号成功通知邮件</title>
+</head>
+<body>
+	<p>尊敬的用户，您好！</p>
+	<p>很荣幸的通知您：您已经成功申请账号</p>
+	<p>账号信息如下：</p>
+	<table>
+		<tr>
+			<th>Login Name</th><th>Password</th><th>NickName</th><th>Apply Time</th>
+		</tr>
+		<tr>
+			<td th:text="${userApply.username}">user name</td>
+			<td th:text="${userApply.password}">password</td>
+			<td th:text="${userApply.nickname}">nickname</td>
+			<td th:text="${userApply.regtime}">register time</td>
+		</tr>
+	</table>
+</body>
+</html>

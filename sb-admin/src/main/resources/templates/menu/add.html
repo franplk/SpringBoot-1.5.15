@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加菜单</title>
+<link rel="stylesheet" type="text/css" href="/easyui/themes/easyui.css" />
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css" />
+<style type="text/css">
+.panel {
+	margin:50px auto;
+}
+.easyui-panel{
+	padding:10px 60px 20px 60px;
+	margin:auto;
+}
+</style>
+</head>
+<body>
+<form id="form-menu-add" method="post">
+<table cellpadding="5" style="width:100%">
+	<tr>
+		<td>父菜单:</td>
+		<td>
+			<select class="easyui-combobox" id="menuPmId" name="parentId">	
+				<option value="0">作为父级菜单</option>
+				<option th:each="pm,stat:${pMenuList}" th:value="${pm.id}" th:text="${pm.name}">父菜单</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>菜单名称:</td>
+		<td><input class="easyui-textbox" id="menuName" name="name" data-options="required:true" /></td>
+	</tr>
+	<tr>
+		<td>链接地址:</td>
+		<td><input class="easyui-textbox" id="menuLink" name="url" /></td>
+	</tr>
+	<tr>
+		<td>描述信息:</td>
+		<td><input class="easyui-textbox" id="descInfo" name="descInfo" /></td>
+	</tr>
+</table>
+</form>
+<div id="form-action" style="text-align: center; padding: 5px">
+	<a class="easyui-linkbutton" id="btn-form-submit" href="javascript:void(0)">确定</a>
+	<a class="easyui-linkbutton" id="btn-form-reset" href="javascript:void(0)">重置</a>
+</div>
+<script type="text/javascript" src="scripts/menu/add.js"></script>
+</body>
+</html>

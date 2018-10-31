@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户登录</title>
+<base th:href="@{/}" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/easyui.css" />
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />
+<style type="text/css">
+a#btn-form-submit{width:164px}
+.admin-window{width:300px;margin:10% auto;}
+</style>
+</head>
+<body>
+<div class="admin-window">
+<div class="easyui-panel" title="用户登录">
+	<form id="form-user-login" method="post">
+		<table cellpadding="5" style="width:100%">
+			<tr>	
+				<td>账号：</td>
+				<td><input class="easyui-textbox" name="username" data-options="required:true" /></td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input class="easyui-textbox" name="password" data-options="required:true" type="password" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;&nbsp;</td>
+				<td>没有账号？&nbsp;&nbsp;<a th:href="@{/user/apply}">点击申请</a></td>
+			</tr>
+			<tr>
+				<td>&nbsp;&nbsp;</td>
+				<td><a class="easyui-linkbutton" id="btn-form-submit" href="javascript:void(0)">登录</a></td>
+			</tr>
+		</table>
+	</form>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	// 防止Session过期后进入登录页面处于Frame中
+	if (window != top) {
+		top.location.href = window.location.href;
+	}
+</script>
+<script type="text/javascript" src="scripts/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/easyui.min.js"></script>
+<script type="text/javascript" src="easyui/easyui-lang-zh.js"></script>
+<script type="text/javascript" src="scripts/user/login.js"></script>
+</html>
